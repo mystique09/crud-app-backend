@@ -6,6 +6,6 @@ export class UpdateUserInput extends PartialType(CreateUserInput) {
   @Field(() => Int)
   id: number;
 
-  @Field(type => Date, {description: 'User updated at field.'})
+  @Field(type => Date, {description: 'User updated at field.', defaultValue: Date.now()})
   updated_at: Date;
 }
