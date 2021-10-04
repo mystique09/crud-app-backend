@@ -1,20 +1,20 @@
-import { ObjectType, Field } from '@nestjs/graphql';
-import { Post } from 'src/posts/entities/post.entity';
+import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Post } from "../../posts/entities/post.entity";
 
 @ObjectType()
 export class User {
-  @Field({description: `User's sername`, nullable: false})
+  @Field({ description: 'username field' })
   username: string;
-
-  @Field({description: `User's Password`, nullable: false})
+  
+  @Field({ description: 'password field' })
   password: string;
-
-  @Field({description: `User's email`, nullable: false})
+  
+  @Field({ description: 'email field' })
   email: string;
-
-  @Field(type => [Post], {defaultValue: []})
-  posts: [Post];
-
-  @Field(type => String, {description: 'User role', defaultValue: 'Normal'})
+  
+  @Field({ description: 'password field', defaultValue: 'Normal' })
   role: string;
+  
+  @Field(type => [Post], { description: 'password field', defaultValue: [] })
+  posts: Post[];
 }

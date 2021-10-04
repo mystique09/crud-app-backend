@@ -3,35 +3,39 @@
 # ------------------------------------------------------
 
 type Post {
-  """Post title"""
+  """post title"""
   post_title: String!
 
-  """Post description"""
-  post_desc: String!
+  """post description"""
+  post_descs: String!
 
-  """Posts's total likes"""
+  """post likes"""
   post_likes: Int!
 
-  """Post author"""
+  """post author"""
   post_author: User!
 }
 
 type User {
-  """User's sername"""
+  """username field"""
   username: String!
 
-  """User's Password"""
+  """password field"""
   password: String!
 
-  """User's email"""
+  """email field"""
   email: String!
+
+  """password field"""
+  role: String!
+
+  """password field"""
   posts: [Post!]!
 }
 
 type Query {
   users: [User!]!
   user(id: Int!): User!
-  user_test: String!
   posts: [Post!]!
   post(id: Int!): Post!
 }
@@ -46,19 +50,38 @@ type Mutation {
 }
 
 input CreateUserInput {
-  """Username"""
+  """username field"""
   username: String!
 
-  """Pasword"""
+  """password field"""
   password: String!
+
+  """email field"""
+  email: String!
+
+  """created at field"""
+  created_at: DateTime
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 input UpdateUserInput {
-  """Username"""
+  """username field"""
   username: String
 
-  """Pasword"""
+  """password field"""
   password: String
+
+  """email field"""
+  email: String
+
+  """created at field"""
+  created_at: DateTime
+
+  """user id"""
   id: Int!
 }
 

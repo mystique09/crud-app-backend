@@ -3,9 +3,6 @@ import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateUserInput extends PartialType(CreateUserInput) {
-  @Field(() => Int)
+  @Field(() => Int, { description: 'user id' })
   id: number;
-
-  @Field(type => Date, {description: 'User updated at field.', defaultValue: Date.now()})
-  updated_at: Date;
 }
