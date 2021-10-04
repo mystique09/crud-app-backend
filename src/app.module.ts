@@ -5,7 +5,6 @@ import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
-import { env } from 'process';
 
 @Module({
   imports: [GraphQLModule.forRoot({
@@ -13,7 +12,7 @@ import { env } from 'process';
     playground: true,
     autoSchemaFile: 'schema.gql'
   }),
-  MongooseModule.forRoot(env.MONGO_URI_DEV),
+  MongooseModule.forRoot('mongodb+srv://mystique09:9nGhsRv1HIr0yiuz@cluster0.tr9fs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'),
   UsersModule, PostsModule],
   controllers: [AppController],
   providers: [AppService],

@@ -2,14 +2,30 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  """Example field (placeholder)"""
-  exampleField: Int!
+type Post {
+  """Post title"""
+  post_title: String!
+
+  """Post description"""
+  post_desc: String!
+
+  """Posts's total likes"""
+  post_likes: Int!
+
+  """Post author"""
+  post_author: User!
 }
 
-type Post {
-  """Example field (placeholder)"""
-  exampleField: Int!
+type User {
+  """User's sername"""
+  username: String!
+
+  """User's Password"""
+  password: String!
+
+  """User's email"""
+  email: String!
+  posts: [Post!]!
 }
 
 type Query {
@@ -30,13 +46,19 @@ type Mutation {
 }
 
 input CreateUserInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """Username"""
+  username: String!
+
+  """Pasword"""
+  password: String!
 }
 
 input UpdateUserInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  """Username"""
+  username: String
+
+  """Pasword"""
+  password: String
   id: Int!
 }
 

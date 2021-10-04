@@ -1,7 +1,8 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
+import { InputType, DateScalarMode, Field } from '@nestjs/graphql';
+import { User } from '../entities/user.entity';
 
 @InputType()
-export class CreateUserInput {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+export class CreateUserInput extends User {
+  @Field(type => Date, {description: 'User created at field.'})
+  created_at: DateScalarMode;
 }
