@@ -29,6 +29,7 @@
     "apollo-server-express": "^3.3.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
+    "crypto": "^1.0.1",
     "graphql": "^15.6.0",
     "mongoose": "^6.0.8",
     "reflect-metadata": "^0.1.13",

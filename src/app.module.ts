@@ -16,7 +16,7 @@ const MONGO_URI_DEV = "mongodb://localhost:27017/crud-backend";
     playground: true,
     autoSchemaFile: 'schema.gql'
   }),
-  MongooseModule.forRoot(MONGO_URI_DEV),
+  MongooseModule.forRoot(MONGO_URI_PROD),
   UsersModule, PostsModule],
   controllers: [AppController],
   providers: [AppService],

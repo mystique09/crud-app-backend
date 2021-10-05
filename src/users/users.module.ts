@@ -17,9 +17,9 @@ import {
 
 @Module({
   imports: [MongooseModule.forFeatureAsync([{
-    name: User.name, useFactory(){
+    name: User.name, useFactory() {
       const schema = UserSchema;
-      
+
       schema.pre('save', () => {
         console.log('Hello from user pre-save!');
       });
@@ -28,4 +28,4 @@ import {
   }])],
   providers: [UsersResolver, UsersService]
 })
-export class UsersModule {}
+export class UsersModule { }
