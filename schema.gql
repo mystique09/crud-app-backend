@@ -3,6 +3,9 @@
 # ------------------------------------------------------
 
 type Post {
+  """post id"""
+  _id: ID!
+
   """post title"""
   post_title: String!
 
@@ -17,6 +20,9 @@ type Post {
 }
 
 type User {
+  """user id"""
+  _id: ID!
+
   """username field"""
   username: String!
 
@@ -86,12 +92,31 @@ input UpdateUserInput {
 }
 
 input CreatePostInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """post id"""
+  _id: ID!
+
+  """post title"""
+  post_title: String!
+
+  """post description"""
+  post_descs: String!
+
+  """post likes"""
+  post_likes: Int = 0
 }
 
 input UpdatePostInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  """post id"""
+  _id: ID
+
+  """post title"""
+  post_title: String
+
+  """post description"""
+  post_descs: String
+
+  """post likes"""
+  post_likes: Int = 0
   id: Int!
+  updated_at: DateTime!
 }
