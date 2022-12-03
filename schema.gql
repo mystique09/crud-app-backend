@@ -1,0 +1,122 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Post {
+  """post id"""
+  _id: ID!
+
+  """post title"""
+  post_title: String!
+
+  """post description"""
+  post_descs: String!
+
+  """post likes"""
+  post_likes: Int!
+
+  """post author"""
+  post_author: User!
+}
+
+type User {
+  """user id"""
+  _id: ID!
+
+  """username field"""
+  username: String!
+
+  """password field"""
+  password: String!
+
+  """email field"""
+  email: String!
+
+  """password field"""
+  role: String!
+
+  """password field"""
+  posts: [Post!]!
+}
+
+type Query {
+  users: [User!]!
+  user(id: Int!): User!
+  posts: [Post!]!
+  post(id: Int!): Post!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: Int!): Post!
+}
+
+input CreateUserInput {
+  """username field"""
+  username: String!
+
+  """password field"""
+  password: String!
+
+  """email field"""
+  email: String!
+
+  """created at field"""
+  created_at: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input UpdateUserInput {
+  """username field"""
+  username: String
+
+  """password field"""
+  password: String
+
+  """email field"""
+  email: String
+
+  """created at field"""
+  created_at: DateTime
+
+  """user id"""
+  id: Int!
+}
+
+input CreatePostInput {
+  """post id"""
+  _id: ID!
+
+  """post title"""
+  post_title: String!
+
+  """post description"""
+  post_descs: String!
+
+  """post likes"""
+  post_likes: Int = 0
+}
+
+input UpdatePostInput {
+  """post id"""
+  _id: ID
+
+  """post title"""
+  post_title: String
+
+  """post description"""
+  post_descs: String
+
+  """post likes"""
+  post_likes: Int = 0
+  id: Int!
+  updated_at: DateTime!
+}
